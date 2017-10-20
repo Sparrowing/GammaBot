@@ -14,7 +14,6 @@ public class Search {
 	
 	private static final Long RESULT_MAX = (long)5;
 	
-	// TODO untested
 	public static List<SearchResult> search(String searchTerm) throws IOException {
 		
 		YouTube.Search.List search = (Auth.yt()).search().list("id,snippet");
