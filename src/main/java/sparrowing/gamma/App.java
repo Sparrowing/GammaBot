@@ -11,6 +11,7 @@ public class App {
 	
 	private static Properties properties;
 	
+	// TODO this is mostly a band-aid
 	public static Properties properties() {
 		return properties;
 	}
