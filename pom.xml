@@ -20,6 +20,12 @@
 		<artifactId>JDA</artifactId>
 		<version>3.3.1_291</version>
 	</dependency>
+	
+	<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-youtube</artifactId>
+      <version>v3-rev186-1.23.0</version>
+    </dependency>
   </dependencies>
   
   <repositories>
