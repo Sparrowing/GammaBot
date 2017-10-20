@@ -9,9 +9,15 @@ import sparrowing.gamma.bot.GammaBot;
 
 public class App {
 	
+	private static Properties properties;
+	
+	public static Properties properties() {
+		return properties;
+	}
+	
     public static void main(String[] args) {
     	
-		Properties properties = new Properties();
+		properties = new Properties();
 		InputStream fileInput = null;
 		
 		// Attempt to load properties

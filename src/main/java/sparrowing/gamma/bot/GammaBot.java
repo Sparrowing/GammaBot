@@ -9,6 +9,7 @@ import sparrowing.BotLib.classes.Command;
 import sparrowing.gamma.bot.commands.CommandsCommand;
 import sparrowing.gamma.bot.commands.HelpCommand;
 import sparrowing.gamma.bot.commands.PingCommand;
+import sparrowing.gamma.bot.commands.SearchCommand;
 
 public class GammaBot extends Bot {
 	
@@ -26,6 +27,7 @@ public class GammaBot extends Bot {
 		commands.add(new PingCommand(this));
 		commands.add(new HelpCommand(this));
 		commands.add(new CommandsCommand(this));
+		commands.add(new SearchCommand(this));
 		
 		return commands;
 	}
