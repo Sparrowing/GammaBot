@@ -49,9 +49,9 @@ public class SearchCommand extends Command {
 		// TODO Add better functionality here
 		String response = "";
 		for (SearchResult r : results) {
-			response += "```";
-			response += String.format("Video Title: %s", r.getSnippet().getTitle());
-			response += "```\n";
+			response += "Video: ";
+			response += String.format("%s https://www.youtube.com/watch?v=%s", r.getSnippet().getTitle(), r.getId().getVideoId());
+			response += "\n";
 		}
 		
 		bot.say(response, channel);
