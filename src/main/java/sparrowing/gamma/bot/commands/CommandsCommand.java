@@ -2,15 +2,15 @@ package sparrowing.gamma.bot.commands;
 
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
-import sparrowing.BotLib.classes.Bot;
-import sparrowing.BotLib.classes.Command;
+import sparrowing.gamma.bot.GammaBot;
+import sparrowing.gamma.lib.Command;
 
 public class CommandsCommand extends Command {
 	
 	private String name = "commands";
 	private String description = "List all available commands.";
 
-	public CommandsCommand(Bot bot) {
+	public CommandsCommand(GammaBot bot) {
 		super(bot);
 	}
 	

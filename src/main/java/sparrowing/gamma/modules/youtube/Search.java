@@ -1,24 +1,32 @@
 package sparrowing.gamma.modules.youtube;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.SearchListResponse;
 import com.google.api.services.youtube.model.SearchResult;
 
-import sparrowing.gamma.App;
-import sparrowing.gamma.modules.youtube.core.Auth;
+import sparrowing.gamma.bot.GammaBot;
 
 public class Search {
+
+	private static final Long RESULT_MAX = (long) 5;
 	
-	private static final Long RESULT_MAX = (long)5;
-	
-	public static List<SearchResult> search(String searchTerm) throws IOException {
+	public static List<SearchResult> search(GammaBot bot, String searchTerm) throws Exception {
 		
-		YouTube.Search.List search = (Auth.yt()).search().list("id,snippet");
+		YouTube yt = bot.getYt();
 		
-		String apiKey = App.properties().getProperty("API_KEY");
+		YouTube.Search.List search = yt.search().list("id,snippet");
+		
+		String apiKey;
+		
+		try {
+			apiKey = bot.getProperty("API_KEY");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Unable to get bot's YouTube Data API key");
+		}
+		
 		search.setKey(apiKey);
 		
 		search.setQ(searchTerm);

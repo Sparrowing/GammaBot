@@ -7,8 +7,8 @@ import com.google.api.services.youtube.model.SearchResult;
 
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
-import sparrowing.BotLib.classes.Bot;
-import sparrowing.BotLib.classes.Command;
+import sparrowing.gamma.bot.GammaBot;
+import sparrowing.gamma.lib.Command;
 import sparrowing.gamma.modules.youtube.Search;
 
 public class SearchCommand extends Command {
@@ -16,7 +16,7 @@ public class SearchCommand extends Command {
 	private String name = "search";
 	private String description = "Search YouTube videos!";
 
-	public SearchCommand(Bot bot) {
+	public SearchCommand(GammaBot bot) {
 		super(bot);
 	}
 	
@@ -39,8 +39,12 @@ public class SearchCommand extends Command {
 		// Search
 		List<SearchResult> results;
 		try {
-			results = Search.search(searchQuery);
+			results = Search.search(bot, searchQuery);
 		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
 		}
